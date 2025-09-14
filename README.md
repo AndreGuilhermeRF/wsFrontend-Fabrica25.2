@@ -1,34 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pokédex Next.js
 
-## Getting Started
+Este é um projeto de Pokédex desenvolvido com [Next.js](https://nextjs.org), consumindo a [PokéAPI](https://pokeapi.co/).  
+Você pode visualizar todos os 151 Pokémon originais, pesquisar por nome e ver detalhes de cada um.
 
-First, run the development server:
+## Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Listagem dos 151 Pokémon originais em um grid responsivo
+- Pesquisa por nome de Pokémon
+- Página de detalhes com informações do Pokémon selecionado
+- Layout moderno e responsivo
+- Footer fixo ao final da página
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Como rodar o projeto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Instale as dependências:
+   ```bash
+   npm install
+   # ou
+   yarn
+   ```
 
-## Learn More
+2. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Estrutura de Pastas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/app/page.tsx` — Página principal da Pokédex
+- `src/components/PokemonCard/page.tsx` — Componente de card de Pokémon
+- `src/app/details/[id]/page.tsx` — Página de detalhes do Pokémon
+- `src/app/globals.css` — Estilos globais do projeto
 
-## Deploy on Vercel
+## Tecnologias Utilizadas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
+- [Axios](https://axios-http.com/)
+- [PokéAPI](https://pokeapi.co/)
+- CSS puro e Tailwind CSS (opcional)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Créditos
+
+- Dados fornecidos por [PokéAPI](https://pokeapi.co/)
+- Projeto feito para fins de estudo e portfólio
+
+---
+
+Sinta-se à vontade para contribuir ou sugerir melhorias!
