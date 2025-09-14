@@ -19,14 +19,16 @@ interface Pokemon {
 }
 
 export default function DetailsPage() {
-  const params = useParams<{ id: string }>(); 
+  const params = useParams<{ id: string }>();
   const { id } = params;
 
   const [poke, setPoke] = useState<Pokemon | null>(null);
 
   useEffect(() => {
     async function GetPoke() {
-      const res = await axios.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${id}`);
+      const res = await axios.get<Pokemon>(
+        `https://pokeapi.co/api/v2/pokemon/${id}`
+      );
       setPoke(res.data);
     }
     GetPoke();
@@ -36,7 +38,14 @@ export default function DetailsPage() {
     <div className="details-root">
       <header className="details-appbar">
         <nav style={{ padding: "8px 16px" }}>
-          <Link href="/" style={{ color: "#fff", textDecoration: "none", fontWeight: 500 }}>
+          <Link
+            href="/"
+            style={{
+              color: "#fff",
+              textDecoration: "none",
+              fontWeight: 500,
+            }}
+          >
             ⬅ Voltar para Home
           </Link>
         </nav>
@@ -53,6 +62,7 @@ export default function DetailsPage() {
               width={120}
               height={120}
               className="details-image"
+              priority
             />
             <div className="details-info">
               <strong>ID:</strong> #{id}

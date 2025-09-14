@@ -50,7 +50,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-export function Header({ filterPoke ,value}) {
+interface HeaderProps {
+  filterPoke: (value: string) => void;
+  value: string;
+}
+
+export function Header({ filterPoke, value }: HeaderProps) {
   return (
     <header className='headerDex'>
       <Box sx={{ flexGrow: 1 }}>

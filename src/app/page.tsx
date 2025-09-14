@@ -25,41 +25,45 @@ export default function Home() {
   }, []);
 
   const getPoke = async () => {
-    const endpoints: string[] = [];
-    for (let i = 1; i < 152; i++) {
-      endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
+    try {
+      const endpoints: string[] = [];
+      for (let i = 1; i < 152; i++) {
+        endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
+      }
+
+      // 🚀 async/await em vez de .then()
+      const res = await Promise.all(endpoints.map((endpoint) => axios.get(endpoint)));
+      setPokemon(res);
+    } catch (error) {
+      console.error("Erro ao buscar os pokémons:", error);
     }
-    axios
-      .all(endpoints.map((endpoint) => axios.get(endpoint)))
-      .then((res) => setPokemon(res));
   };
 
   const filterPoke = (name: string) => {
-    const filteredPokemon: PokemonResponse[] = [];
     if (name === "") {
       getPoke();
       return;
     }
-    for (const poke of pokemon) {
-      if (poke.data.name.includes(name.toLowerCase())) {
-        filteredPokemon.push(poke);
-      }
-    }
+
+    const filteredPokemon: PokemonResponse[] = pokemon.filter((poke) =>
+      poke.data.name.includes(name.toLowerCase())
+    );
+
     setPokemon(filteredPokemon);
   };
 
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-      <Header filterPoke={filterPoke} />
+      <Header filterPoke={filterPoke} value="" />
       <h1 className="page-title">Pokedex de todos os 151 Pokémon originais</h1>
       <div className="container">
         {pokemon.map((poke) =>
           poke.data && poke.data.sprites ? (
             <PokemonCard
+              key={poke.data.id}
               name={poke.data.name}
               image={poke.data.sprites.front_default}
               id={poke.data.id}
-              key={poke.data.id}
             />
           ) : null
         )}

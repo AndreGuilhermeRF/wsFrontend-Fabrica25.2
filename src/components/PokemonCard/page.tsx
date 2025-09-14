@@ -3,7 +3,14 @@ import * as React from 'react';
 import Link from "next/link";
 
 
-export default function PokemonCard({ name, image, id, isGrid = false }) {
+type PokemonCardProps = {
+  name: string;
+  image: string;
+  id: number | string;
+  isGrid?: boolean;
+};
+
+export default function PokemonCard({ name, image, id, isGrid = false }: PokemonCardProps) {
   return (
     <Link href={`/details/${id}`}>
       <div className="pokemon-card">
