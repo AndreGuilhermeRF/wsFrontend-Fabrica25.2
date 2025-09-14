@@ -6,7 +6,7 @@ import Link from "next/link";
 import axios from "axios";
 import { Footer } from "@/components/Footer/page";
 import "./style.css";
-
+import Image from "next/image";
 export default function DetailsPage() {
   const params = useParams();
   const { id } = params;
@@ -35,16 +35,17 @@ export default function DetailsPage() {
           <div className="details-paper">
             <div className="details-title">{poke.name}</div>
             <hr className="details-divider" />
-            <img
+            <Image
               src={poke.sprites.front_default}
               alt={poke.name}
-              className="details-image"
-            />
+              width={120}
+              height={120}
+              className="details-image" />
             <div className="details-info">
               <strong>ID:</strong> #{id}
             </div>
             <div className="details-info">
-              <strong>Tipo:</strong> {poke.types.map((t: any) => t.type.name).join(", ")}
+              <strong>Tipo:</strong> {poke.types.map((t: { type: { name: string } }) => t.type.name)}
             </div>
             <div className="details-info">
               <strong>Peso:</strong> {poke.weight / 10} kg
