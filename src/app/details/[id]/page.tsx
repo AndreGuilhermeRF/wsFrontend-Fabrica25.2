@@ -45,7 +45,7 @@ export default function DetailsPage() {
               <strong>ID:</strong> #{id}
             </div>
             <div className="details-info">
-              <strong>Tipo:</strong> {poke.types.map((t: { type: { name: string } }) => t.type.name)}
+              <strong>Tipo:</strong> {poke.types.map((t: { type: { name: string } }) => t.type.name).join(', ')}
             </div>
             <div className="details-info">
               <strong>Peso:</strong> {poke.weight / 10} kg

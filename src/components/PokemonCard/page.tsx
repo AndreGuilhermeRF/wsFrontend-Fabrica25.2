@@ -1,21 +1,20 @@
 "use client";
 import * as React from 'react';
 import Link from "next/link";
-import Image from 'next/image';
+
 
 export default function PokemonCard({ name, image, id, isGrid = false }) {
   return (
     <Link href={`/details/${id}`}>
       <div className="pokemon-card">
-        <Image
+        <img
           src={image}
           alt={name}
-          width={96}
-          height={96}
+          
         />
         <div className="pokemon-name">
-          <div className="pokemon-type"><p className="font-bold capitalize">{name}</p></div>
-          <div className="pokemon-id">#{id}</div>
+          <p className="font-bold capitalize">{name}</p>
+          <p className="text-gray-500">#{id}</p>
         </div>
       </div>
     </Link>
