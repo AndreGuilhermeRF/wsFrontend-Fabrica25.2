@@ -1,0 +1,51 @@
+.details-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+}
+
+.details-appbar {
+  margin-bottom: 24px;
+  background: #1976d2;
+  color: #fff;
+}
+
+.details-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-paper {
+  padding: 32px;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.details-title {
+  text-transform: capitalize;
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.details-divider {
+  margin-bottom: 16px;
+}
+
+.details-image {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 16px auto;
+  display: block;
+}
+
+.details-info {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
