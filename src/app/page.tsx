@@ -12,18 +12,19 @@ export default function Home() {
     getPoke();
   }, []);
   const getPoke = async () => {
-    var endpoints = [];
-    for (var i = 1; i < 152; i++) {
+    const endpoints = [];
+    for (let i = 1; i < 152; i++) {
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
     }
     axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((res) => setPokemon(res));
   };
   const filterPoke = (name) => {
-    var filteredPokemon = [];
+    const filteredPokemon = [];
     if (name === "") {
       getPoke();
+      return;
     }
-    for (var i in pokemon) {
+    for (let i in pokemon) {
       if (pokemon[i].data.name.includes(name)) {
         filteredPokemon.push(pokemon[i]);
       }
